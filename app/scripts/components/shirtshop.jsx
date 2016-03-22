@@ -33,6 +33,9 @@ var ShirtShopComponent = React.createClass({
     this.getTotal();
   },
   addItemToCart: function(item){
+    var qty = this.refs.qty.value;
+    var size = this.refs.size.value;
+    console.log(qty);
 
     var additem = item.clone();
     this.props.cartCollection.add(item);

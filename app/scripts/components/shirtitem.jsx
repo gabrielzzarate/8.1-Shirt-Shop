@@ -12,6 +12,19 @@ require('backbone-react-component');
 var ShirtItem = React.createClass({
 	mixins: [Backbone.React.Component.mixin],
 
+	addItemToCart: function(item){
+    var qty = this.refs.qty.value;
+    var size = this.refs.size.value;
+    console.log(qty);
+
+    var additem = item.clone();
+    this.props.cartCollection.add(item);
+    this.setState({ cartCollection: this.props.cartCollection});
+
+    //var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
+    //localStorage.setItem("cartItems", cartToJSON);
+  },
+
 
 	render: function() {
 		var shopItems = function(item) {
@@ -25,21 +38,21 @@ var ShirtItem = React.createClass({
 							<h3>{item.get('title')}</h3>
             	<p className="item-price">${item.get('price')}</p>
             	<form>
-                    <input type="text" className="form-control" id="quantity"  placeholder="QTY" />
+                    <input ref="qty" type="text" className="form-control" id="quantity"  placeholder="QTY" />
                 </form>
-            	<button onClick={this.props.handleAddToCart.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
+            	<button onClick={this.addItemToCart.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
 
-							<div className="btn-group">
-							  <button type="button" className=" btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							    Size <span className="caret"></span>
-							  </button>
-							  <ul className="dropdown-menu">
-							    <li><a href="#">Small</a></li>
-							    <li><a href="#">Medium </a></li>
-							    <li><a href="#">Large</a></li>
 
-							  </ul>
-							</div>
+
+
+							  <select ref="size" className="form-control">
+							 		<option>Size</option>
+							    <option>Small</option>
+							    <option>Medium </option>
+							    <option>Large</option>
+
+							  </select>
+
 
 					</div>
 

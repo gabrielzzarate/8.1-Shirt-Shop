@@ -23,6 +23,7 @@ var CartComponent = React.createClass({
 		    };
 		},
 		removeCartItem: function(item){
+
 			this.props.cartCollection.remove(item);
 			this.calculateTotal();
 			this.setState({cartCollection: this.props.cartCollection});

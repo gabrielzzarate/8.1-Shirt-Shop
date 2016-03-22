@@ -1,4 +1,5 @@
 var Backbone = require('backbone');
+//var Backbone.LocalStorage = require("backbone.localstorage");
 
 var Shirt = Backbone.Model.extend({
 
