@@ -33,6 +33,8 @@ var ShirtShopComponent = React.createClass({
     this.getTotal();
   },
   addItemToCart: function(item){
+    this.getTotal();
+
     var qty = this.refs.qty.value;
     var size = this.refs.size.value;
     console.log(qty);
@@ -53,7 +55,7 @@ var ShirtShopComponent = React.createClass({
     return (
       <div className='container shirt-shop-container'>
         <div className="row">
-          <ShirtItemComponent handleAddToCart={this.handleAddToCart} shirtCollection = {this.props.shirtCollection} cartCollection = {this.props.cartCollection}/>
+          <ShirtItemComponent addItemToCart={this.addItemToCart} handleAddToCart={this.handleAddToCart} shirtCollection = {this.props.shirtCollection} cartCollection = {this.props.cartCollection}/>
         </div>
       </div>
     );

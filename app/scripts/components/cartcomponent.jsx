@@ -93,21 +93,21 @@ var CartItem = React.createClass({
 
 });
 
-// var MyFactory = React.createFactory(CartComponent);
+var MyFactory = React.createFactory(CartComponent);
 
-// var CartComponentFactory = MyFactory({
-//   collection: {
-//     ShirtCollection: new Shirts.ShirtCollection(shirtData),
-//     CartCollection: new Cart.CartCollection()
-//   }
-// });
+var CartComponentFactory = MyFactory({
+  collection: {
+    ShirtCollection: new Shirts.ShirtCollection(shirtData),
+    CartCollection: new Cart.CartCollection()
+  }
+});
 
 
 
 
 
 module.exports = {
-	//"CartComponentFactory": CartComponentFactory,
+	"CartComponentFactory": CartComponentFactory,
 	"CartComponent": CartComponent,
 	"CartItem": CartItem
 };

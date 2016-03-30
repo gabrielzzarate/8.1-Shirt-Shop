@@ -12,18 +12,18 @@ require('backbone-react-component');
 var ShirtItem = React.createClass({
 	mixins: [Backbone.React.Component.mixin],
 
-	addItemToCart: function(item){
-    var qty = this.refs.qty.value;
-    var size = this.refs.size.value;
-    console.log(qty);
+	// addItemToCart: function(item){
+ //    var qty = this.refs.qty.value;
+ //    var size = this.refs.size.value;
+ //    console.log(qty);
 
-    var additem = item.clone();
-    this.props.cartCollection.add(item);
-    this.setState({ cartCollection: this.props.cartCollection});
+ //    var additem = item.clone();
+ //    this.props.cartCollection.add(item);
+ //    this.setState({ cartCollection: this.props.cartCollection});
 
-    //var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
-    //localStorage.setItem("cartItems", cartToJSON);
-  },
+ //    //var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
+ //    //localStorage.setItem("cartItems", cartToJSON);
+ //  },
 
 
 	render: function() {
@@ -40,7 +40,7 @@ var ShirtItem = React.createClass({
             	<form>
                     <input ref="qty" type="text" className="form-control" id="quantity"  placeholder="QTY" />
                 </form>
-            	<button onClick={this.addItemToCart.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
+            	<button onClick={this.props.addItemToCart.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
 
 
 
