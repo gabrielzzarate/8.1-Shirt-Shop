@@ -12,25 +12,27 @@ require('backbone-react-component');
 var ShirtItem = React.createClass({
 	mixins: [Backbone.React.Component.mixin],
 
-	// addItemToCart: function(item){
- //    var qty = this.refs.qty.value;
- //    var size = this.refs.size.value;
- //    console.log(qty);
+	handleAdd: function(item){
+		this.props.addItemToCart(item);
 
- //    var additem = item.clone();
- //    this.props.cartCollection.add(item);
- //    this.setState({ cartCollection: this.props.cartCollection});
+    // var qty = this.refs.qty.value;
+    // var size = this.refs.size.value;
+    // console.log(qty);
 
- //    //var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
- //    //localStorage.setItem("cartItems", cartToJSON);
- //  },
+    // var additem = item.clone();
+    // this.props.cartCollection.add(item);
+    // this.setState({ cartCollection: this.props.cartCollection});
+
+    // var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
+    // localStorage.setItem("cartItems", cartToJSON);
+  },
 
 
 	render: function() {
 		var shopItems = function(item) {
 
 			return (
-				<div key={item.get("cid")} className="col-sm-6 col-md-4">
+				<div key={item.get("name")} className="col-sm-6 col-md-4">
 					<div className="thumbnail">
 						<img className="shop-item-image" src={item.get('image')} alt="..." />
 					</div>
@@ -40,7 +42,7 @@ var ShirtItem = React.createClass({
             	<form>
                     <input ref="qty" type="text" className="form-control" id="quantity"  placeholder="QTY" />
                 </form>
-            	<button onClick={this.props.addItemToCart.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
+            	<button onClick={this.handleAdd.bind(this, item)} type="button" className="pull-right btn btn-success">Add to Cart</button>
 
 
 

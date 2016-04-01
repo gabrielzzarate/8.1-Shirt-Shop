@@ -17,8 +17,8 @@ var CartComponent = React.createClass({
 		getInitialState: function() {
 		    return {
 		    	total: this.props.cartCollection.total(),
-		    	cartItems: JSON.parse(localStorage.cartItems),
-		    	cartCollection: this.props.cartCollection,
+		    	// cartItems: JSON.parse(localStorage.cartItems),
+		    	cartCollection: this.props.cartCollection
 
 		    };
 		},
@@ -35,7 +35,7 @@ var CartComponent = React.createClass({
 		},
 		render: function() {
 			return (
-				<div className='container '>
+				<div  className='container '>
 					<table className="table table-condensed cart-table-container">
 						<thead>
 							<tr>
@@ -53,7 +53,7 @@ var CartComponent = React.createClass({
 						</tbody>
 					</table>
 					<div className="cart-total-container">
-							<span>Cart Total: ${this.state.total}</span>
+							{/*<span>Cart Total: ${this.state.total}</span> */}
 					</div>
 				</div>
 			);
@@ -74,7 +74,7 @@ var CartItem = React.createClass({
 					<th>{item.get('quantity')}</th>
 					<th>{item.get('price')}</th>
 					<th>build deal timer </th>
-					<th><button onClick={this.props.removeCartItem.bind(this, item)} type="button" className="btn btn primary">Remove</button></th>
+					{/*<th><button onClick={this.props.removeCartItem.bind(this, item)} type="button" className="btn btn primary">Remove</button></th> */}
 
 
 

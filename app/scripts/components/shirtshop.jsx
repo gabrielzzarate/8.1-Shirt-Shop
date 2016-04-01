@@ -33,18 +33,23 @@ var ShirtShopComponent = React.createClass({
     this.getTotal();
   },
   addItemToCart: function(item){
-    this.getTotal();
+    var order = item.clone();
+    this.props.cartCollection.add(order);
+    this.setState({
+      cartCollection: this.props.cartCollection
+    });
+    // this.getTotal();
 
-    var qty = this.refs.qty.value;
-    var size = this.refs.size.value;
-    console.log(qty);
+    // // var qty = this.refs.qty.value;
+    // // var size = this.refs.size.value;
+    // // console.log(qty);
 
-    var additem = item.clone();
-    this.props.cartCollection.add(item);
-    this.setState({ cartCollection: this.props.cartCollection});
-    var quantity = $('#quantity').val();
-    var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
-    localStorage.setItem("cartItems", cartToJSON);
+    // var additem = item.clone();
+    // this.props.cartCollection.add(item);
+    // this.setState({ cartCollection: this.props.cartCollection});
+    // var quantity = $('#quantity').val();
+    // var cartToJSON = JSON.stringify(this.state.cartCollection.toJSON());
+    // localStorage.setItem("cartItems", cartToJSON);
   },
   getTotal: function(item){
     this.setState({total: this.props.cartCollection.total()});
