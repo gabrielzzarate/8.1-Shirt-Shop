@@ -1,0 +1,36 @@
+
+// Bootstrap Variables
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Import Bootstrap
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+.shop-item-image {
+	height: 100px;
+}
+
+.cart-table-container {
+	height: 100px;
+
+}
+
+.shirt-shop-container {
+	height: 500px;
+}
+
+
+.cart-total-container {
+	border-top: 1px solid gray;
+	margin-bottom: 30px;
+}
